@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { logout, getCurrentUserProfile, onAuthStateChange } from "../firebase/auth";
+import { logout, onAuthStateChange } from "../firebase/auth";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +13,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     await logout();
     setUser(null);
+    setIsOpen(false); // Close the mobile menu on logout
   };
 
   useEffect(() => {
@@ -51,34 +52,27 @@ const Navbar = () => {
             <Link to="/contact" className="text-white hover:text-gray-400">
               Contact
             </Link>
-            <Link to="/signin">
-              <button className="py-2 px-4 bg-teal-500 text-black rounded-full hover:scale-105 hover:bg-black hover:text-white transition-all">
-                Sign In
-              </button>
-            </Link>
-            <button
-              className="py-2 px-4 bg-teal-500 text-black rounded-full hover:scale-105 hover:bg-black hover:text-white transition-all"
-              onClick={handleLogout}
-            >
-              Log Out
-            </button>
-
-            {/* Profile Image */}
-            {user?.photoURL ? (
-              <Link to="/profile" className="ml-4">
-                <img
-                  src={user.photoURL}
-                  alt="User Profile"
-                  className="h-10 w-10 rounded-full border-2 border-teal-500 hover:scale-105 transition duration-300"
-                />
-              </Link>
+            {user ? (
+              <>
+                <button
+                  className="py-2 px-4 bg-teal-500 text-black rounded-full hover:scale-105 hover:bg-black hover:text-white transition-all"
+                  onClick={handleLogout}
+                >
+                  Log Out
+                </button>
+                <Link to="/profile" className="ml-4">
+                  <img
+                    src={user.photoURL || "https://via.placeholder.com/40"}
+                    alt="User Profile"
+                    className="h-10 w-10 rounded-full border-2 border-teal-500 hover:scale-105 transition duration-300"
+                  />
+                </Link>
+              </>
             ) : (
-              <Link to="/profile" className="ml-4">
-                <img
-                  src="https://via.placeholder.com/40"
-                  alt="Default Profile"
-                  className="h-10 w-10 rounded-full border-2 border-teal-500 hover:scale-105 transition duration-300"
-                />
+              <Link to="/signin">
+                <button className="py-2 px-4 bg-teal-500 text-black rounded-full hover:scale-105 hover:bg-black hover:text-white transition-all">
+                  Sign In
+                </button>
               </Link>
             )}
           </div>
@@ -116,6 +110,58 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="lg:hidden bg-black">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            <Link
+              to="/"
+              className="block text-white hover:text-gray-400"
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
+              to="/about"
+              className="block text-white hover:text-gray-400"
+              onClick={() => setIsOpen(false)}
+            >
+              About
+            </Link>
+            <Link
+              to="/services"
+              className="block text-white hover:text-gray-400"
+              onClick={() => setIsOpen(false)}
+            >
+              Services
+            </Link>
+            <Link
+              to="/contact"
+              className="block text-white hover:text-gray-400"
+              onClick={() => setIsOpen(false)}
+            >
+              Contact
+            </Link>
+            {user ? (
+              <button
+                className="w-full text-left text-white py-2 hover:bg-teal-500"
+                onClick={handleLogout}
+              >
+                Log Out
+              </button>
+            ) : (
+              <Link
+                to="/signin"
+                className="block text-white hover:text-gray-400"
+                onClick={() => setIsOpen(false)}
+              >
+                Sign In
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
