@@ -6,7 +6,7 @@ const HowItWorks = () => {
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <div>
-            <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-white uppercase rounded-full bg-teal-500">
+            <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-white uppercase rounded-full bg-[#8B5DFF]">
               Get Started
             </p>
           </div>
@@ -21,7 +21,7 @@ const HowItWorks = () => {
           {/* Step 1 */}
           <div className="p-6 border border-white  rounded-lg transition-transform transform hover:scale-105">
             <div className="flex items-center justify-between mb-6">
-              <div className="text-teal-400">
+              <div className= "text-[#8B5DFF]">
                 <svg
                   className="w-8 h-8"
                   xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@ const HowItWorks = () => {
           {/* Step 2 */}
           <div className="p-6 border border-white  rounded-lg transition-transform transform hover:scale-105">
             <div className="flex items-center justify-between mb-6">
-              <div className="text-teal-400">
+              <div className="  text-[#8B5DFF]   ">
                 <svg
                   className="w-8 h-8"
                   xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,7 @@ const HowItWorks = () => {
           {/* Step 3 */}
           <div className="p-6 border border-white   rounded-lg transition-transform transform hover:scale-105">
             <div className="flex items-center justify-between mb-6">
-              <div className="text-teal-400">
+              <div className="text-[#8B5DFF]">
                 <svg
                   className="w-8 h-8"
                   xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +99,7 @@ const HowItWorks = () => {
           {/* Success */}
           <div className="p-6 border border-white  rounded-lg transition-transform transform hover:scale-105">
             <div className="flex items-center justify-between mb-6">
-              <div className="text-teal-400">
+              <div className="text-[#8B5DFF]">
                 <svg
                   className="w-8 h-8"
                   xmlns="http://www.w3.org/2000/svg"

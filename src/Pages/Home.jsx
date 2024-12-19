@@ -4,8 +4,8 @@ import Features from "../components/Features";
 import Howitswork from "../components/Howitswork";
 import Testimonials from "../components/TestimonialSection";
 import CallToAction from "../components/CallToAction";
-import Footer from "../components/Footer";
-import Test from "../components/Sample";
+
+import CookieConsent from "react-cookie-consent"
 
 
 const Home = () => {
@@ -18,10 +18,10 @@ const Home = () => {
       <Hero/>
       <Features/>
       <Howitswork/>
-      <Test/>
+      <CookieConsent/>
       <Testimonials/>
       <CallToAction/>
-      <Footer/>
+      
     </div>
   );
 };

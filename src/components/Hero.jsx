@@ -19,7 +19,7 @@ const Hero = () => {
               GROW
             </h1>
             <button
-              className="relative py-2 px-8 text-black  text-base font-bold overflow-hidden bg-teal-500    rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:bg-black mt-6"
+              className="relative py-2 px-8 text-black  text-base font-bold overflow-hidden bg-[#8B5DFF]   rounded-full transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:bg-black mt-6"
             >
               JOIN NOW
             </button>

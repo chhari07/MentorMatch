@@ -1,12 +1,30 @@
+// Import Firebase modules
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getStorage } from "firebase/storage";
+import { getFirestore } from "firebase/firestore"; // Import Firestore
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBpPUoXQmhffdbl842QrKYeRgf2ePxyN6E",
-    authDomain: "mentor-5a859.firebaseapp.com",
-    projectId: "mentor-5a859",
-    storageBucket: "mentor-5a859.firebasestorage.app",
-    messagingSenderId: "1075358679565",
-    appId: "1:1075358679565:web:2d686def4e34a7a971cb44"
-  };
+  apiKey: "AIzaSyAhQ_NRcJZub8tGZlhTur_dXhVMxxD96j0",
+  authDomain: "mentorarea-ad924.firebaseapp.com",
+  projectId: "mentorarea-ad924",
+  storageBucket: "mentorarea-ad924.firebasestorage.app",
+  messagingSenderId: "429158103008",
+  appId: "1:429158103008:web:fb3a775c62c0c415609d85"
+};
+
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-export default app;
+// Get Auth instance
+const auth = getAuth(app);
+
+// Get Storage instance
+const storage = getStorage(app);
+
+// Get Firestore instance
+const db = getFirestore(app); // Initialize Firestore
+
+// Export instances for use in other files
+export { auth, storage, db };  // Named export

@@ -28,7 +28,7 @@ const Testimonials = () => {
         <h2 className="text-3xl font-semibold mb-8 text-white">What Our Clients Say</h2>
         <div className="flex flex-wrap justify-center gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-black text-white p-6 rounded-lg shadow-lg w-80 border-4 border-teal-500">
+            <div key={index} className="bg-black text-white p-6 rounded-lg shadow-lg w-80 border-4 border-[#8B5DFF]">
               <img
                 src={testimonial.image}
                 alt={testimonial.name}

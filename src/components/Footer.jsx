@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -7,7 +8,13 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between">
           {/* Logo and Information */}
           <div className="w-full sm:w-1/2 lg:w-1/4 mb-6">
-            <h3 className="text-2xl font-semibold">MentorConnect</h3>
+          <Link to="/">
+              <img
+                src="https://chhari07.github.io/images-/image.png"
+                alt="Logo"
+                className="h-10 w-auto"
+              />
+            </Link>
             <p className="mt-2 text-white">
               Connecting you with experienced mentors who can help guide you towards your personal and professional goals.
             </p>

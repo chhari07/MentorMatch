@@ -1,110 +1,45 @@
-import React, { useState } from "react";
-import { signUpWithProfilePhoto } from "../firebase/auth";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Signup = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [profilePhoto, setProfilePhoto] = useState(null);
 
-  const handleFileChange = (e) => {
-    setProfilePhoto(e.target.files[0]);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!profilePhoto) {
-      toast.error("Please upload a profile photo.");
-      return;
-    }
-
-    try {
-      toast.info("Signing up...");
-      await signUpWithProfilePhoto(email, password, profilePhoto);
-      toast.success("User signed up successfully!");
-    } catch (error) {
-      toast.error(`Error: ${error.message}`);
-    }
-  };
-
+const Signin = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
-        <h1 className="text-2xl font-semibold text-center text-gray-700 mb-6">
-          Sign Up
-        </h1>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Email Input */}
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
-            />
-          </div>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+      {/* Responsive Grid with 2 Boxes in a Row */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
+        {/* Box 1 */}
+        <div className="bg-white shadow-lg rounded-xl p-6 flex flex-col items-center">
+          <div className="w-24 h-24 bg-gray-300 rounded-full mb-4"></div>
+          <h2 className="text-lg font-semibold mb-2">Mentor Profile</h2>
+          <p className="text-gray-500 mb-4 text-center">
+            Sign up as a mentor and guide aspiring users.
+          </p>
+          <Link to="/mentorlogin">
+            <button className="bg-[#8B5DFF]    text-white px-4 py-2 rounded-lg mb-2 w-full hover:bg-[#8B5DFF]    transition duration-300">
+              Sign as Mentor
+            </button>
+          </Link>
+         
+         
+        </div>
 
-          {/* Password Input */}
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
-            />
-          </div>
-
-          {/* Profile Photo Input */}
-          <div>
-            <label
-              htmlFor="profilePhoto"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Profile Photo
-            </label>
-            <input
-              type="file"
-              id="profilePhoto"
-              accept="image/*"
-              onChange={handleFileChange}
-              required
-              className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
-            />
-          </div>
-
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="w-full py-2 px-4 bg-teal-500 text-white font-semibold rounded-lg shadow-md hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-75 transition"
-          >
-            Sign Up
-          </button>
-        </form>
+        {/* Box 2 */}
+        <div className="bg-white shadow-lg rounded-xl p-6 flex flex-col items-center">
+          <div className="w-24 h-24 bg-gray-300 rounded-full mb-4"></div>
+          <h2 className="text-lg font-semibold mb-2">User Profile</h2>
+          <p className="text-gray-500 mb-4 text-center">
+            Sign up as a user and start your journey.
+          </p>
+          <Link to="/userlogin">
+            <button className="bg-[#8B5DFF]     text-white px-4 py-2 rounded-lg mb-2 w-full hover:[#8B5DFF]   transition duration-300">
+              Sign as user
+            </button>
+          </Link>
+          
+        </div>
       </div>
-
-      {/* Toast Notifications */}
-      <ToastContainer position="top-right" autoClose={5000} />
     </div>
   );
 };
 
-export default Signup;
+export default Signin;
